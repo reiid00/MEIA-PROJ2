@@ -42,19 +42,23 @@
 Abaixo, deixo as configurações que penso que farão mais sentido aplicar neste projeto, sendo que podemos pensar nisto como um software em que o utilizador escolhe os valores pretendidos, alguns destes opcionais, anexando o dataset com o histórico de vendas dos produtos que pretende que sejam (ou possam ser) incluídos na otimização. Já agora, alguém deverá fazer um mockup (p. ex. em balsamiq) de como poderia ficar uma interface desse tipo, para apresentarmos no blog, no pitch, na demo e talvez até no artigo, como sendo o protótipo do nosso produto, sendo a interface/software uma das coisas a explorar no trabalho futuro.
 
 **Configurações Obrigatórias (Hard Constraints)**:
-- A e B(int)- Min e Max de variedade de produtos. Se Min for 0, ent n existe mínimo. Se Max for 0, ent o Max é igual ao número de produtos diferentes no dataset. Se ambos forem 0, ent é obrigatório usar todos os produtos, isto é, a quantidade cada produto tem que ser maior que 0.
+- __A e B(int)__ - Min e Max de variedade de produtos. Se Min for 0, ent n existe mínimo. Se Max for 0, ent o Max é igual ao número de produtos diferentes no dataset. Se ambos forem 0, ent é obrigatório usar todos os produtos, isto é, a quantidade cada produto tem que ser maior que 0.
 
-- C e D(int) - Min e Max quantidades por produto. Se Min e Max forem 0, ent não são usados.
+- __C e D(int)__ - Min e Max quantidades por produto. Se Min e Max forem 0, ent não são usados.
 
-- E e F(int) - Min e Max quantidades globais (soma total das quantidades escolhidas para os produtos). Se Min e Max forem 0, ent n são usados. (podemos testar sempre com isto a 0, dado que como utilizaremos as dimensões, à partida deixa de fzr sentido usar esta restrição, mas por agora podemos deixar e no futuro removemos se acharmos que n acrescenta nada)
+- __E e F(int)__ - Min e Max quantidades globais (soma total das quantidades escolhidas para os produtos). Se Min e Max forem 0, ent n são usados. (podemos testar sempre com isto a 0, dado que como utilizaremos as dimensões, à partida deixa de fzr sentido usar esta restrição, mas por agora podemos deixar e no futuro removemos se acharmos que n acrescenta nada)
 
-- G(int) - Dimensões uteis, em metros cúbicos, da loja. Este valor é obrigatório, ou seja, tem que ser superior a 0. A soma das dimensões de cada produto escolhido multiplicado pela respetivas quantidades, tem que ser inferior ou igual a este valor.
+- __G(int)__ - Dimensões uteis, em metros cúbicos, da loja. Este valor é obrigatório, ou seja, tem que ser superior a 0. A soma das dimensões de cada produto escolhido multiplicado pela respetivas quantidades, tem que ser inferior ou igual a este valor.
 
-- H(int)-Periodicidade de refill de stock médio por produto, em dias. Ou seja, representa os dias mínimos cujas quantidades escolhidas para cada produto deverão aguentar em stock até ao próximo refill no fornecedor.
-Características necessárias para cada produto:
-Dimensões - comprimento, largura e altura.
-Lucro previsto - Isto será representado pela função obtida no modelo treinado em aprendizagem automática para prever o lucro de vendas do dia seguinte com base no seu histórico diário de vendas. Se o parâmetro H estiver definido com o valor 1, ent basta prever para o próximo dia, se for 10, ent é preciso aplicar o modelo de previsão de lucro de vendas para os próximos 10 dias e somar os valores obtidos, sendo que uma solução ótima é aquela que maximiza as receitas da empresa, respeitando todas as outras restrições.
-Unidades vendidas previstas para um dado dia - Isto será representado pela função obtida no modelo treinado em aprendizagem automática para prever as unidades vendidas do dia seguinte com base no seu histórico diário de vendas. Se o parâmetro H estiver definido com o valor 1, ent basta prever para o próximo dia, se for 10, ent é preciso aplicar o modelo de previsão de unidades vendidas para os próximos 10 dias e somar os valores obtidos, sendo que uma solução ótima deverá apresentar mais unidades em stock do que as obtidas neste valor, mas tal não deverá ser obrigatório, caso contrário será difícil arranjar sempre uma solução, pelo que é importante ter uma função objetiva que procure atingir a melhor solução com isto em consideração, para além das receitas.
+- __H(int)__ - Periodicidade de refill de stock médio por produto, em dias. Ou seja, representa os dias mínimos cujas quantidades escolhidas para cada produto deverão aguentar em stock até ao próximo refill no fornecedor.
+
+
+**Características necessárias para cada produto**:
+- __Dimensões__ - comprimento, largura e altura.
+
+- __Lucro previsto__ - Isto será representado pela função obtida no modelo treinado em aprendizagem automática para prever o lucro de vendas do dia seguinte com base no seu histórico diário de vendas. Se o parâmetro H estiver definido com o valor 1, ent basta prever para o próximo dia, se for 10, ent é preciso aplicar o modelo de previsão de lucro de vendas para os próximos 10 dias e somar os valores obtidos, sendo que uma solução ótima é aquela que maximiza as receitas da empresa, respeitando todas as outras restrições.
+
+- __Unidades vendidas previstas para um dado dia__ - Isto será representado pela função obtida no modelo treinado em aprendizagem automática para prever as unidades vendidas do dia seguinte com base no seu histórico diário de vendas. Se o parâmetro H estiver definido com o valor 1, ent basta prever para o próximo dia, se for 10, ent é preciso aplicar o modelo de previsão de unidades vendidas para os próximos 10 dias e somar os valores obtidos, sendo que uma solução ótima deverá apresentar mais unidades em stock do que as obtidas neste valor, mas tal não deverá ser obrigatório, caso contrário será difícil arranjar sempre uma solução, pelo que é importante ter uma função objetiva que procure atingir a melhor solução com isto em consideração, para além das receitas.
 
 ### Artigo (só começar após tudo o resto estar perfeito)
 1. Atualizar o artigo de acordo com as alterações da ideia incialmente prevista.
